@@ -1,0 +1,29 @@
+name: 'AdGuardHome DNS rewrites sync'
+description: 'This GitHub Action helps to sync AdGuardHome DNS rewrites'
+author: 'Alexey Savelyev'
+inputs:
+    path:
+        description: 'Path to the JSON file or directory with JSON files containing the DNS rewrites.'
+        required: true
+    username:
+        description: 'AdGuardHome user name.'
+        required: true
+    userpassword:
+        description: 'AdGuardHome user password.'
+        required: true
+    url:
+        description: 'dGuardHome URL (http//0.0.0.0:80).'
+        required: true
+
+runs:
+    using: 'docker'
+    image: 'Dockerfile'
+    args:
+    - '--path'
+    - ${{ inputs.path }}
+    - '--username'
+    - ${{ inputs.username }}
+    - '-userpassword'
+    - ${{ inputs.userpassword }}
+    - '-url'
+    - ${{ inputs.url }}
