@@ -5,4 +5,4 @@ RUN dotnet publish ./GitHubAction/GitHubAction.csproj -c Release -o out --no-sel
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0
 COPY --from=build-env /out .
-ENTRYPOINT [ "dotnet", "/DotNet.GitHubAction.dll" ]
+ENTRYPOINT [ "dotnet", "/GitHubAction.dll" ]
