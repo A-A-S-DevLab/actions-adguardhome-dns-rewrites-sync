@@ -7,6 +7,7 @@ static TService Get<TService>(IHost host)
     host.Services.GetRequiredService<TService>();
 
 var parser = Default.ParseArguments<ActionInputs>(() => new(), args);
+
 parser.WithNotParsed(
     errors =>
     {
@@ -19,6 +20,7 @@ parser.WithNotParsed(
     });
 
 await parser.WithParsedAsync(options => Action(options, host));
+
 await host.RunAsync();
 
 static async Task Action(ActionInputs inputs, IHost host)

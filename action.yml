@@ -19,11 +19,11 @@ runs:
     using: 'docker'
     image: 'Dockerfile'
     args:
-    - '--path'
+    - '-r'
     - ${{ inputs.path }}
-    - '--username'
+    - '-n'
     - ${{ inputs.username }}
-    - '-userpassword'
+    - '-p'
     - ${{ inputs.userpassword }}
-    - '-url'
+    - '-u'
     - ${{ inputs.url }}
