@@ -77,7 +77,7 @@ public class AdGuardHomeService : IAdGuardHomeService
         var fileContent = await File.ReadAllLinesAsync(filename, cancellationToken);
 
         var result = new List<DomainDto>();
-        foreach (var line in fileContent)
+        foreach (var line in fileContent.Where(x => !string.IsNullOrWhiteSpace(x)))
         {
             try
             {
