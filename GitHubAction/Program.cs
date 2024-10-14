@@ -11,7 +11,7 @@ parser.WithNotParsed(
     errors =>
     {
         Get<ILoggerFactory>(host)
-            .CreateLogger("DotNet.GitHubAction.Program")
+            .CreateLogger("GitHubAction.Program")
             .LogError(
                 string.Join(Environment.NewLine, errors.Select(error => error.ToString())));
 
